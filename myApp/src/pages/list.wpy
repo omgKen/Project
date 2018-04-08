@@ -1,0 +1,42 @@
+<style lang="less">
+	.swiper {
+    border-radius: 5px;
+  }
+</style>
+<template>
+  <view>
+    <swiper indicator-dots="{{dots}}" autoplay="{{autoplay}}" class="swiper">
+      <block wx:for="{{imgUrls}}" wx:key="item">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" width="355" height="150"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <footertab></footertab>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+  import footertab from '../components/footertab'
+
+  export default class List extends wepy.page {
+    // 对应原生的page.json
+    config = {
+      navigationBarTitleText: 'test'
+    }
+
+    components = {
+      footertab: footertab
+    }
+
+    data = {
+      dots: false,
+      autoplay: true,
+      imgUrls: [
+        'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+        'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+      ]
+    }
+  }
+</script>

@@ -1,0 +1,18 @@
+<style lang="less">
+
+</style>
+<template>
+  <view>
+    lady page
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class Lady extends wepy.page {
+    // 对应原生的page.json
+    config = {
+      navigationBarTitleText: 'test'
+    }
+  }
+</script>

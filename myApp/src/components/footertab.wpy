@@ -1,0 +1,78 @@
+<style lang="less">
+  #footer {
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+  }
+  #footer .footer-list {
+    display: inline-block;
+    flex: 1;
+    text-align: center;
+    border: 1px solid #fff;
+    background-color: #d3d3d3;
+    border-radius: 5px;
+  }
+  #footer .footer-list .footer-icon {
+    height: 30px;
+  }
+  #footer .footer-list .footer-icon image{
+    height: 100%;
+    width: 40px;
+  }
+  #footer .footer-list .footer-content {
+    height: 20px;
+    color: #fff;
+    font-family: "Microsoft JhengHei";
+  }
+</style>
+<template>
+  <view id="footer">
+    <view wx:for="{{list}}" wx:key="name" wx:for-index="index" wx:for-item="item" class="footer-list" bindtap="route({{index}})">
+      <view class="footer-icon"><image src="{{item.url}}" lazy-load="true"></image></view>
+      <view class="footer-content">{{item.name}}</view>
+    </view>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+  export default class footertab extends wepy.component {
+    data = {
+      list: [
+        {
+          name: 'man',
+          url: '../assets/images/man.svg',
+          route: 'man'
+        },
+        {
+          name: 'lady',
+          url: '../assets/images/lady.svg',
+          route: 'lady'
+        }
+      ]
+    }
+
+    methods = {
+      route (index) {
+        let that = this
+        let url
+        for (let i in that.list) {
+          if (Number(i) === index) {
+            url = that.list[i].route
+          }
+        }
+        console.log(index)
+        console.log(that.list)
+        console.log(url)
+        // navigateTo url 基于pages/路径下
+        wepy.navigateTo({
+          url: url,
+          success: function (res) {
+            console.log(res)
+          }
+        })
+      }
+    }
+  }
+</script>

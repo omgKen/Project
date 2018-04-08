@@ -1,0 +1,16 @@
+<style lang="less">
+
+</style>
+<template>
+  <view>man page</view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class Man extends wepy.page {
+    // 对应原生的page.json
+    config = {
+      navigationBarTitleText: 'test'
+    }
+  }
+</script>
