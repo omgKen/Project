@@ -3,9 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import axios from 'axios'
+import axios from './tools/https'
+import vuex from 'vuex'
+import store from './store/index'
 
 Vue.prototype.$ajax = axios
+
+Vue.use(vuex)
 
 Vue.config.productionTip = false
 
@@ -13,6 +17,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
